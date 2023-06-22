@@ -31,9 +31,10 @@ If given more time with this dataset, I would spend more time on further explori
 | hpo (top-hpo-model: hpo1) | Tree-Based Models: (GBM, XT, & XGB) | LightGBMXT     | presets: 'optimize_for_deployment' | 0.52362 |
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
- 
+ ![image](https://github.com/Sabir-AI-ML/Udacity_Bike_Prediction-Project01/assets/127653130/0c3bd174-9f27-4e75-a5c1-0af4714b1877)
+
 ### Create a line plot showing the top Kaggle score for the three (or more) prediction submissions during the project.
- 
+ ![image](https://github.com/Sabir-AI-ML/Udacity_Bike_Prediction-Project01/assets/127653130/431a1c46-8b51-4750-9322-0e1ca9e0ee9d)
 
 ## Summary
 In this project, I used AutoGluon to predict bike sharing demand. I started with the initial training and realized the need to set negative predicted values to zero for successful submission. The top-ranked model was achieved through hyperparameter optimization, resulting in a Kaggle score of 0.52362. Exploratory analysis helped in identifying the importance of the "hour" feature, which significantly improved the model's performance. If given more time, further feature engineering and hyperparameter tuning could be explored to enhance the model's accuracy.
