@@ -6,14 +6,14 @@
 During the initial training, when I tried to submit the predictions, I realized that Kaggle would reject the submission if there were any negative values in the predictions. Therefore, I needed to make sure that all the predicted values were set to zero if they were negative.
 
 ### What was the top-ranked model that performed?
-The top-ranked model in my project was the "add_features" model, which achieved a RMSE score of 30.307393 and a Kaggle score of 0.63530. This model was developed by training on additional features that I created through exploratory data analysis and feature engineering.
+The top-ranked model in my project was the "add_features" model named 'WeightedEnsemble_L3', which achieved a RMSE score of 30.125355 and a Kaggle score of 0.67703. This model was developed by training on additional features that I created through exploratory data analysis and feature engineering.
 
 ## Exploratory Data Analysis and Feature Creation
 ### What did the exploratory analysis find, and how did you add additional features?
 The exploratory analysis revealed the distribution of the features in the dataset. To improve the model's performance, I decided to add an additional feature by separating out the datetime column into the hour part. This was done by extracting the hour from the datetime column and creating a new "hour" feature in both the training and test datasets.
 
 ### How much better did your model perform after adding additional features, and why do you think that is?
-After adding the additional "hour" feature, the model's performance improved significantly. The Kaggle score decreased from 0.63530 to 0.52362, indicating better predictive accuracy. The addition of the "hour" feature allowed the model to capture the time-of-day patterns and their impact on bike sharing demand, leading to improved predictions.
+After adding the additional "hour" feature, the model's performance improved significantly. The Kaggle score decreased from 0.67703 to 0.51983, indicating better predictive accuracy. The addition of the "hour" feature allowed the model to capture the time-of-day patterns and their impact on bike sharing demand, leading to improved predictions.
 
 ## Hyperparameter Tuning
 ### How much better did your model perform after trying different hyperparameters?
@@ -24,17 +24,18 @@ If given more time with this dataset, I would spend more time on further explori
 
 ### Create a table with the models you ran, the hyperparameters modified, and the Kaggle score.
 
-| Model            | hpo1                            | hpo2           | hpo3                                | Score   |
-|------------------|---------------------------------|----------------|-------------------------------------|---------|
-| initial          | prescribed_values               | prescribed_values | presets: 'best quality'          | 1.80439 |
-| add_features     | prescribed_values               | prescribed_values | presets: 'best quality'          | 0.63530 |
-| hpo (top-hpo-model: hpo1) | Tree-Based Models: (GBM, XT, & XGB) | LightGBMXT     | presets: 'optimize_for_deployment' | 0.52362 |
+| Model                       | hpo1                  | hpo2                | hpo3                        | Score    |
+|-----------------------------|-----------------------|---------------------|-----------------------------|----------|
+| initial                     | prescribed_values     | prescribed_values   | presets: 'best quality'    | 1.81018  |
+| add_features                | prescribed_values     | prescribed_values   | presets: 'best quality'    | 0.67703  |
+| hpo (top-hpo-model: hpo1)    | num_boost_round: 100, num_leaves: 36 | dropout_prob: 0.1 | presets: 'best quality'    | 0.51983  |
+
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
- ![image](https://github.com/Sabir-AI-ML/Udacity_Bike_Prediction-Project01/assets/127653130/0c3bd174-9f27-4e75-a5c1-0af4714b1877)
+![model_train_score](https://github.com/Sabir-AI-ML/Udacity_Bike_Prediction-Project01/assets/127653130/3f415a3e-7738-47e8-9c74-405155392775)
 
 ### Create a line plot showing the top Kaggle score for the three (or more) prediction submissions during the project.
- ![image](https://github.com/Sabir-AI-ML/Udacity_Bike_Prediction-Project01/assets/127653130/431a1c46-8b51-4750-9322-0e1ca9e0ee9d)
+![model_test_score](https://github.com/Sabir-AI-ML/Udacity_Bike_Prediction-Project01/assets/127653130/0bb5abcd-1ae7-4ad3-bfd6-9f6c75bf18a7)
 
 ## Summary
 In this project, I used AutoGluon to predict bike sharing demand. I started with the initial training and realized the need to set negative predicted values to zero for successful submission. The top-ranked model was achieved through hyperparameter optimization, resulting in a Kaggle score of 0.52362. Exploratory analysis helped in identifying the importance of the "hour" feature, which significantly improved the model's performance. If given more time, further feature engineering and hyperparameter tuning could be explored to enhance the model's accuracy.
